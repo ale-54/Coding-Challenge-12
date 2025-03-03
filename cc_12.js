@@ -17,3 +17,20 @@ metricCardsArray.forEach((card) => {
     card.innerText += ` - Updated`; //"- Updated"
     card.style.backgroundColor = `lightblue`; //changing background color
 });
+
+//Task 3: Dynamic Inventory Management – Adding and Removing Items
+function addInventoryItem(productName) {
+    const inventoryList = document.getElementById(`inventoryList`);
+    const newProductItem = document.createElement(`li`);
+    newProductItem.setAttribute("class", "product-item");
+    newProductItem.setAttribute("data-product", productName);
+    newProductItem.innerText = productName;
+    newProductItem.addEventListener(`click`, () => {
+        removeProductItem(newProductItem); //adding a click event and removing upon clicking
+    });
+    inventoryList.appendChild(newProductItem); //adding clicked item
+};
+function removeProductItem(productItem) {
+    const inventoryList = document.getElementById(`inventoryList`);
+    inventoryList.removeChild(productItem);
+}; //removing clicked item

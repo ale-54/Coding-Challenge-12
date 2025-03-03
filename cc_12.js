@@ -11,6 +11,26 @@ revenueCard.innerHTML = `
 dashboardId.appendChild(revenueCard);
 
 //Task 2: Updating Dashboard Metrics – Working with NodeLists and Arrays
+
+//Your dashboard now includes multiple metric cards (e.g., Revenue, Profit, Expenses)
+const profitCard = document.createElement(`div`);
+profitCard.setAttribute("class", "metric-card");
+profitCard.setAttribute("id", "profitCard");
+profitCard.innerHTML = `
+    <h3>Profit</h3>
+    <p>$0</p>
+`; //populating card w/ "Profit" and "$0"
+dashboardId.appendChild(profitCard);
+
+const expensesCard = document.createElement(`div`);
+expensesCard.setAttribute("class", "metric-card");
+expensesCard.setAttribute("id", "expensesCard");
+expensesCard.innerHTML = `
+    <h3>Expenses</h3>
+    <p>$0</p>
+`; //populating card w/ "Expenses" and "$0"
+dashboardId.appendChild(expensesCard);
+
 const metricCards = document.querySelectorAll(`.metric-card`); //selecting all metric cards
 const metricCardsArray = Array.from(metricCards); //converting NodeList to an array
 metricCardsArray.forEach((card) => {

@@ -54,3 +54,21 @@ function removeProductItem(productItem) {
     const inventoryList = document.getElementById(`inventoryList`);
     inventoryList.removeChild(productItem);
 }; //removing clicked item
+
+// Task 4: Business Customer Section – Handling Event Bubbling
+const customerSection = document.getElementById("customerSection");
+const customerNames = ["Mother", "Father", "Child"]; //filler names
+customerNames.forEach((name) => {
+    const customerCard = document.createElement("div"); //creating the customer card
+    customerCard.setAttribute("class", "customer-card");
+    customerCard.innerText = name;
+    customerCard.style.backgroundColor = "lightblue";
+    customerCard.addEventListener("click", (event) => {
+        console.log(`User clicked`);
+        event.stopPropagation();
+    });
+    customerSection.appendChild(customerCard);
+});
+customerSection.addEventListener("click", () => {
+    console.log("User clicked customerSection"); //logging when user clicks
+});
